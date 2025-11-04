@@ -1,6 +1,5 @@
-// Definimos nuestra red local como 'confiables'
 acl "confiables" {
-    192.168.56.0/24;  // Tu red de Vagrant
+    192.168.56.0/24;
     localhost;
     localnets;
 };
@@ -8,27 +7,20 @@ acl "confiables" {
 options {
     directory "/var/cache/bind";
 
-    // 1. Forwarders: Si no sé una dirección, pregunto a Google
     forwarders {
         8.8.8.8;
     };
 
-    // 2. No permitir transferencias de zona (seguridad)
     allow-transfer { none; };
 
-    // 3. Escuchar SÓLO en nuestra IP privada y en localhost
-    listen-on port 53 { 192.168.56.2; 127.0.0.1; };
+    listen-on port 53 { 192.168.56.101; 127.0.0.1; };
 
-    // 4. Habilitar recursión (permitir que busque en nombre de clientes)
     recursion yes;
 
-    // 5. Permitir recursión SÓLO a nuestra red 'confiables'
     allow-recursion { confiables; };
 
-    // 6. Deshabilitar IPv6 (como pedía el paso 4 y confirma la guía)
     listen-on-v6 { none; };
 
-    // --- Resto de configuración estándar ---
     dnssec-validation auto;
-    auth-nxdomain no;    # conform to RFC1035
+    auth-nxdomain no;
 };

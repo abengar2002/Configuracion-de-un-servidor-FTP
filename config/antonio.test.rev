@@ -1,17 +1,11 @@
-;
-; Fichero de zona INVERSA para 192.168.56.0/24
-;
 $TTL    86400
-@       IN      SOA     debian.antonio.test. admin.antonio.test. (
-                        2025110401      ; Serial
+@       IN      SOA     ns.antonio.test. admin.antonio.test. (
+                        2025110402      ; Serial
                         3600            ; Refresh
                         1800            ; Retry
                         604800          ; Expire
                         86400 )         ; Negative Cache TTL
-;
-; Servidor de Nombres
-@       IN      NS      debian.antonio.test.
 
-;
-; Registros PTR (IP -> Nombre)
-2       IN      PTR     debian.antonio.test.
+@       IN      NS      ns.antonio.test.
+
+101     IN      PTR     ns.antonio.test.
