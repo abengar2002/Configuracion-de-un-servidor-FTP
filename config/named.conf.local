@@ -1,13 +1,15 @@
-// Zona Directa: midominio.net
-zone "midominio.net" {
-    type master;
-    // BIND9 buscará este archivo en /etc/bind/ en la VM
-    file "/etc/bind/db.midominio.net"; 
-};
+//
+// Do any local configuration here
+//
 
-// Zona Inversa: 192.168.56.in-addr.arpa
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+zone "antonio.test" {
+    type master;
+    file "/var/lib/bind/antonio.test.dns";
+};
 zone "56.168.192.in-addr.arpa" {
     type master;
-    // BIND9 buscará este archivo en /etc/bind/ en la VM
-    file "/etc/bind/db.192.168.56"; 
+    file "/var/lib/bind/antonio.test.rev";
 };

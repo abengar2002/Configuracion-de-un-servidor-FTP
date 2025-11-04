@@ -1,38 +1,31 @@
 #!/bin/bash
-# Script de aprovisionamiento para la configuración del servidor DNS (BIND9)
-# Este script se ejecuta en la máquina virtual Debian 11 (servidor-dns)
 
-echo "--- Aprovisionamiento de Servidor DNS (midominio.net) ---"
+# --- 1. ACTUALIZAR E INSTALAR ---
+echo ">>> Actualizando e instalando BIND9 y utilidades..."
+apt update
+apt install -y bind9 dnsutils
 
-echo "--- 1. Actualizando el sistema ---"
-# Actualizar la lista de paquetes
-apt-get update -y
+# --- 2. FORZAR IPv4 (Punto 4 de la guía) ---
+echo ">>> Configurando BIND para usar solo IPv4..."
+sed -i 's/OPTIONS="-u bind"/OPTIONS="-u bind -4"/' /etc/default/named
 
-echo "--- 2. Instalando el servidor DNS (BIND9) ---"
-# Instalar todos los paquetes requeridos: bind9, bind9utils, bind9-doc
-apt-get install -y bind9 bind9utils bind9-doc
+# --- 3. COPIAR ARCHIVOS DE CONFIGURACIÓN ---
+echo ">>> Copiando archivos de configuración..."
 
-echo "--- 2.1. Desactivando IPv6 en BIND9 (/etc/default/named) ---"
-# Modifica /etc/default/named para usar solo IPv4, según la práctica.
-# Reemplaza la línea OPTIONS="" por OPTIONS="-u bind -4"
-sed -i 's/OPTIONS=""/OPTIONS="-u bind -4"/g' /etc/default/named
-
-echo "--- 3. Copiando archivos de configuración de zonas ---"
-
-# La carpeta del proyecto está montada en /vagrant. 
-# Copiamos los archivos de zona desde /vagrant/config/ a /etc/bind/
-cp /vagrant/config/db.midominio.net /etc/bind/
-cp /vagrant/config/db.192.168.56 /etc/bind/
-
-# Copia el archivo de declaración de zonas (named.conf.local)
+# Copiamos desde la carpeta /vagrant/config (el proyecto) 
+# al sistema de la VM.
+cp /vagrant/config/named.conf.options /etc/bind/
 cp /vagrant/config/named.conf.local /etc/bind/
+cp /vagrant/config/antonio.test.dns /var/lib/bind/
+cp /vagrant/config/antonio.test.rev /var/lib/bind/
 
-echo "--- 4. Aplicando permisos y reiniciando BIND9 ---"
+# --- 4. AJUSTAR PERMISOS DE ZONA ---
+echo ">>> Ajustando permisos de los archivos de zona..."
+chown bind:bind /var/lib/bind/antonio.test.dns
+chown bind:bind /var/lib/bind/antonio.test.rev
 
-# Asigna los permisos correctos a los nuevos archivos de zona
-chown -R bind:bind /etc/bind/db.*
-
-# Reinicia el servicio para que tome la nueva configuración (IPv4 y zonas)
+# --- 5. REINICIAR SERVICIO ---
+echo ">>> Reiniciando BIND9..."
 systemctl restart bind9
 
-echo "--- Aprovisionamiento de DNS completado. ---"
+echo ">>> ¡Servidor DNS provisionado!"

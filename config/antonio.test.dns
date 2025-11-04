@@ -1,0 +1,17 @@
+;
+; Fichero de zona para antonio.test
+;
+$TTL    86400
+@       IN      SOA     debian.antonio.test. admin.antonio.test. (
+                        2025110401      ; Serial (Formato: AñoMesDiaVersion)
+                        3600            ; Refresh
+                        1800            ; Retry
+                        604800          ; Expire
+                        86400 )         ; Negative Cache TTL
+;
+; Servidor de Nombres
+@       IN      NS      debian.antonio.test.
+
+;
+; Registros A (IPs)
+debian.antonio.test.    IN      A       192.168.56.2
