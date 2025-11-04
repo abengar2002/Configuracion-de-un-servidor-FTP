@@ -1,0 +1,15 @@
+$TTL 86400
+@ IN SOA servidor-dns.midominio.net. antonio.midominio.net. (
+    2025101405  ; Serial (Debe coincidir con la zona directa)
+    604800      ; Refresh
+    86400       ; Retry
+    2419200     ; Expire
+    86400 )     ; Negative Cache TTL
+;
+; Servidor de Nombres (NS)
+@ IN NS servidor-dns.midominio.net.
+;
+; Registros PTR (Punteros - Solo el último octeto de la IP)
+10 IN PTR servidor-dns.midominio.net.
+10 IN PTR www.midominio.net.
+11 IN PTR cliente.midominio.net.

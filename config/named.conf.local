@@ -1,0 +1,13 @@
+// Zona Directa: midominio.net
+zone "midominio.net" {
+    type master;
+    // BIND9 buscará este archivo en /etc/bind/ en la VM
+    file "/etc/bind/db.midominio.net"; 
+};
+
+// Zona Inversa: 192.168.56.in-addr.arpa
+zone "56.168.192.in-addr.arpa" {
+    type master;
+    // BIND9 buscará este archivo en /etc/bind/ en la VM
+    file "/etc/bind/db.192.168.56"; 
+};
