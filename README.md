@@ -13,6 +13,7 @@ El primer paso consiste en configurar la máquina virtual `ns` (IP: `192.168.56.
 Esta configuración es crítica, ya que el servidor DNS debe ser capaz de resolver nombres como `ftp.antonio.test` para que el resto de la práctica funcione.
 
 Capturas de confirmación:
+
   <img width="520" height="380" alt="Captura de pantalla 2025-11-04 233839" src="https://github.com/user-attachments/assets/2bdb4388-e6f6-438c-8ec5-71017380ae2a" />
   <img width="509" height="389" alt="Captura de pantalla 2025-11-04 234007" src="https://github.com/user-attachments/assets/57665e72-f96c-4900-b5bd-17e9e1d2b426" />
   <img width="504" height="376" alt="Captura de pantalla 2025-11-04 234039" src="https://github.com/user-attachments/assets/c5b076dd-b485-4e33-90fa-990adaf1a3d1" />
