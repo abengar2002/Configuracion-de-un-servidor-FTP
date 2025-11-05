@@ -13,9 +13,9 @@ El primer paso consiste en configurar la máquina virtual `ns` (IP: `192.168.56.
 Esta configuración es crítica, ya que el servidor DNS debe ser capaz de resolver nombres como `ftp.antonio.test` para que el resto de la práctica funcione.
 
 Capturas de confirmación:
-<img width="520" height="380" alt="Captura de pantalla 2025-11-04 233839" src="https://github.com/user-attachments/assets/2bdb4388-e6f6-438c-8ec5-71017380ae2a" />
-<img width="509" height="389" alt="Captura de pantalla 2025-11-04 234007" src="https://github.com/user-attachments/assets/57665e72-f96c-4900-b5bd-17e9e1d2b426" />
-<img width="504" height="376" alt="Captura de pantalla 2025-11-04 234039" src="https://github.com/user-attachments/assets/c5b076dd-b485-4e33-90fa-990adaf1a3d1" />
+  <img width="520" height="380" alt="Captura de pantalla 2025-11-04 233839" src="https://github.com/user-attachments/assets/2bdb4388-e6f6-438c-8ec5-71017380ae2a" />
+  <img width="509" height="389" alt="Captura de pantalla 2025-11-04 234007" src="https://github.com/user-attachments/assets/57665e72-f96c-4900-b5bd-17e9e1d2b426" />
+  <img width="504" height="376" alt="Captura de pantalla 2025-11-04 234039" src="https://github.com/user-attachments/assets/c5b076dd-b485-4e33-90fa-990adaf1a3d1" />
 
 ---
 
@@ -29,12 +29,13 @@ Conexión a (`ftp.cica.es`):
 <img width="1174" height="935" alt="Captura de pantalla 2025-11-04 235018" src="https://github.com/user-attachments/assets/11946e3f-6ded-43b7-8ee3-20b5f9b34534" />
 
 Descarga de archivo (`check`):
-<img width="1176" height="934" alt="Captura de pantalla 2025-11-04 235111" src="https://github.com/user-attachments/assets/4bcb9fa2-94ae-422a-9f96-2298bca1263e" />
-<img width="552" height="90" alt="Captura de pantalla 2025-11-04 235123" src="https://github.com/user-attachments/assets/f7332a70-b8eb-48c0-90aa-1a22a08fdb2f" />
+  <img width="1176" height="934" alt="Captura de pantalla 2025-11-04 235111" src="https://github.com/user-attachments/assets/4bcb9fa2-94ae-422a-9f96-2298bca1263e" />
+  <img width="552" height="90" alt="Captura de pantalla 2025-11-04 235123" src="https://github.com/user-attachments/assets/f7332a70-b8eb-48c0-90aa-1a22a08fdb2f" />
 
 Subida de (`datos.txt`):
-<img width="566" height="250" alt="Captura de pantalla 2025-11-04 235206" src="https://github.com/user-attachments/assets/88d7d5f6-a33b-4b50-88f7-5abaabb2859f" />
-<img width="353" height="82" alt="Captura de pantalla 2025-11-04 235217" src="https://github.com/user-attachments/assets/e538e7f4-bc65-4d69-981c-fb8af1fb3cab" />
+
+  <img width="566" height="250" alt="Captura de pantalla 2025-11-04 235206" src="https://github.com/user-attachments/assets/88d7d5f6-a33b-4b50-88f7-5abaabb2859f" />
+  <img width="353" height="82" alt="Captura de pantalla 2025-11-04 235217" src="https://github.com/user-attachments/assets/e538e7f4-bc65-4d69-981c-fb8af1fb3cab" />
 
 ---
 
@@ -126,6 +127,7 @@ Se genera un certificado SSL autofirmado (`antonio.test.pem`) usando `openssl` y
 ### 4.2. Configuración de `vsftpd.conf` (SSL)
 
 Se añaden las directivas para habilitar SSL, forzarlo para usuarios locales y prohibirlo para anónimos, además de la directiva de compatibilidad `require_ssl_reuse=NO`.
+
 <img width="458" height="263" alt="Captura de pantalla 2025-11-05 121812" src="https://github.com/user-attachments/assets/ae623569-996f-4e6c-94d9-1313511fa703" />
 
 ### 4.3. Pruebas de Conexión (FTPS)
